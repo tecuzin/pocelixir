@@ -86,6 +86,11 @@ if (-not (Test-CommandExists "git")) {
     Install-ChocoPackage "git" "Git"
 }
 
+# Installation de Make si nécessaire
+if (-not (Test-CommandExists "make")) {
+    Install-ChocoPackage "make" "Make"
+}
+
 # Recharger le PATH pour prendre en compte les nouvelles installations
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
